@@ -1,4 +1,4 @@
-from blpy import Bot
+from baleapi import Bot
 
 TOKEN = "YOUR_BOT_TOKEN"
 bot = Bot(TOKEN)
