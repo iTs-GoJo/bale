@@ -18,13 +18,13 @@ Python library for interacting with the Bale Bot API easily and asynchronously.
 ## Installation
 
 ```bash
-pip install aiohttp
+pip install asyncio
 ```
 
-Place the `balepy` folder in your project directory or install as a package with:
+you can install `bale` for create, edit your own bots
 
 ```bash
-pip install .
+pip install bale
 ```
 
 ---
@@ -33,7 +33,7 @@ pip install .
 
 ```python
 import asyncio
-from balepy import Bot, Keyboard
+from bale import Bot, Keyboard
 
 TOKEN = "YOUR_BOT_TOKEN"
 bot = Bot(TOKEN)
@@ -61,7 +61,7 @@ bot.run()
 
 ## Modules
 
-### `client.py`
+### `client`
 
 Handles API requests and provides methods:
 
@@ -72,7 +72,7 @@ Handles API requests and provides methods:
 * `edit_message_text(chat_id, message_id, text)`
 * `send_photo(chat_id, photo, caption=None)`
 
-### `bot.py`
+### `bot`
 
 Manages the bot loop, incoming updates, and message handlers.
 
@@ -80,14 +80,14 @@ Manages the bot loop, incoming updates, and message handlers.
 * `run()`
 * `run_async()`
 
-### `keyboard.py`
+### `keyboard`
 
 Create keyboards:
 
 * `Keyboard.inline(buttons)`
 * `Keyboard.reply(buttons, resize=True)`
 
-### `message.py`
+### `message`
 
 Message model with attributes:
 
@@ -97,14 +97,14 @@ Message model with attributes:
 * `text`
 * `date`
 
-### `errors.py`
+### `errors`
 
 Custom exceptions:
 
 * `BaleError`
 * `BaleAPIError`
 
-### `types.py`
+### `types`
 
 Models for Chat and User objects.
 
@@ -113,7 +113,6 @@ Models for Chat and User objects.
 ## Notes
 
 * Make sure to use your correct Bale Bot token.
-* Use offset handling to avoid processing old messages.
 * Async methods must be awaited or run within an event loop.
 
 ---
