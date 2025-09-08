@@ -1,4 +1,4 @@
-# bale
+# blpy
 
 Python library for interacting with the Bale Bot API easily and asynchronously.
 
@@ -24,7 +24,7 @@ pip install asyncio
 you can install `bale` for create, edit your own bots
 
 ```bash
-pip install bale
+pip install blpy
 ```
 
 ---
@@ -33,7 +33,7 @@ pip install bale
 
 ```python
 import asyncio
-from bale import Bot, Keyboard
+from blpy import Bot, Keyboard
 
 TOKEN = "YOUR_BOT_TOKEN"
 bot = Bot(TOKEN)
