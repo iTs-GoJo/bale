@@ -21,12 +21,12 @@ class Bot:
                 await handler(msg)
 
     async def get_updates(self, offset: int = None, timeout: int = 10) -> list:
-        """لیست آپدیت‌ها"""
+        
         params = {"offset": offset, "timeout": timeout}
         return await self.client.get_updates(offset)
 
     async def run_async(self):
-        # گرفتن آخرین آپدیت‌ها و تنظیم offset برای نادیده گرفتن پیام‌های قدیمی
+        
         updates = await self.get_updates()
         offset = None
         if updates:
