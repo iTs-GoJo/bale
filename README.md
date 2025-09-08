@@ -1,4 +1,4 @@
-# folderallpy
+# bale
 
 Python library for interacting with the Bale Bot API easily and asynchronously.
 
