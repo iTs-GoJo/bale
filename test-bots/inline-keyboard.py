@@ -1,4 +1,4 @@
-from balepy import Bot, Keyboard
+from bale import Bot, Keyboard
 
 TOKEN = "YOUR_BOT_TOKEN"
 bot = Bot(TOKEN)
