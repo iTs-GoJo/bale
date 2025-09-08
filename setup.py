@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="bale", 
+    name="blpy", 
     version="1.0.0",
     description="Python library for Bale Bot API",
     long_description=open("README.md", encoding="utf-8").read(),
