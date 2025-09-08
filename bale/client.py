@@ -11,7 +11,7 @@ class Client:
         self.url = f"{self.BASE_URL}{self.token}/"
 
     async def _request(self, method: str, data: Optional[Dict] = None, files: Optional[Dict] = None) -> Dict[str, Any]:
-        """ارسال درخواست به API بله"""
+        
         async with aiohttp.ClientSession() as session:
             if files:
                 async with session.post(self.url + method, data=data) as resp:
@@ -27,12 +27,12 @@ class Client:
                 raise BaleAPIError(res.get("error_code", -1), res.get("description", "Unknown error"))
             return res["result"]
 
-    # متدهای اصلی
+    
     async def get_me(self):
         return await self._request("getMe")
 
     async def get_updates(self, offset: Optional[int] = None, timeout: int = 10):
-        """دریافت پیام‌ها و آپدیت‌ها"""
+        
         data = {"offset": offset, "timeout": timeout}
         return await self._request("getUpdates", data)
 
