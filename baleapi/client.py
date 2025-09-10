@@ -132,4 +132,45 @@ class Client:
         else:
             
             data["sticker"] = sticker
-            return await self._request("sendSticker", data)
+            return await self._request("sendSticker", data)          
+    # ----- گروه / کانال -----
+    async def get_chat(self, chat_id: int):
+        return await self._request("getChat", {"chat_id": chat_id})
+
+    async def get_chat_members_count(self, chat_id: int):
+        return await self._request("getChatMembersCount", {"chat_id": chat_id})
+
+    async def get_chat_administrators(self, chat_id: int):
+        return await self._request("getChatAdministrators", {"chat_id": chat_id})
+
+    async def ban_chat_member(self, chat_id: int, user_id: int):
+        return await self._request("banChatMember", {"chat_id": chat_id, "user_id": user_id})
+
+    async def unban_chat_member(self, chat_id: int, user_id: int):
+        return await self._request("unbanChatMember", {"chat_id": chat_id, "user_id": user_id})
+
+    async def promote_chat_member(self, chat_id: int, user_id: int, **permissions):
+        data = {"chat_id": chat_id, "user_id": user_id}
+        data.update(permissions)
+        return await self._request("promoteChatMember", data)
+
+    async def set_chat_title(self, chat_id: int, title: str):
+        return await self._request("setChatTitle", {"chat_id": chat_id, "title": title})
+
+    async def set_chat_description(self, chat_id: int, description: str):
+        return await self._request("setChatDescription", {"chat_id": chat_id, "description": description})
+
+    async def set_chat_photo(self, chat_id: int, file_path: str):
+        return await self._multipart_request("setChatPhoto", {"chat_id": chat_id}, "photo", file_path)
+
+    async def delete_chat_photo(self, chat_id: int):
+        return await self._request("deleteChatPhoto", {"chat_id": chat_id})
+
+    async def pin_chat_message(self, chat_id: int, message_id: int):
+        return await self._request("pinChatMessage", {"chat_id": chat_id, "message_id": message_id})
+
+    async def unpin_chat_message(self, chat_id: int, message_id: int):
+      return await self._request("unpinChatMessage", {
+        "chat_id": chat_id,
+        "message_id": message_id
+    })
